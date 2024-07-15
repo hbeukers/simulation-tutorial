@@ -1,14 +1,19 @@
+# How to start
+
 To make this repo you need rye [installed](https://rye.astral.sh/guide/installation/).
 
 To make the repo run install rye and clone the repo.
 Go to the repo folder and run:
 
 ```shell
-rye sync
+rye sync --no-lock
 ```
- 
+
 This should be enough to set everything up, including python version.
 
+The tutorial notebook is located in the notebooks folder.
+
+# How this repo was set up
 
 The repo was set up using the following commands:
 
@@ -49,6 +54,10 @@ fix = true
 select = ["I"]
 ```
 
-
+To make the lock file work on all systems you add
+```toml
+[tool.rye]
+universal = true
+```
 
 

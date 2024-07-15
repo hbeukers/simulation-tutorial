@@ -25,6 +25,7 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = []
+universal = true
 
 [tool.rye.workspace]
 
