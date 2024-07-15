@@ -34,7 +34,7 @@ beautifulsoup4==4.12.3
 bleach==6.1.0
     # via nbconvert
 bokeh==3.5.0
-    # via repo-example
+    # via simulation-tutorial
 certifi==2024.7.4
     # via httpcore
     # via httpx
@@ -56,7 +56,7 @@ contourpy==1.2.1
 cycler==0.12.1
     # via matplotlib
 dask==2024.7.0
-    # via repo-example
+    # via simulation-tutorial
 debugpy==1.8.2
     # via ipykernel
 decorator==5.1.1
@@ -118,7 +118,7 @@ jsonschema==4.22.0
 jsonschema-specifications==2023.12.1
     # via jsonschema
 jupyter==1.0.0
-    # via repo-example
+    # via simulation-tutorial
 jupyter-client==8.6.2
     # via ipykernel
     # via jupyter-console
@@ -166,14 +166,14 @@ markupsafe==2.1.5
     # via jinja2
     # via nbconvert
 matplotlib==3.9.1
-    # via repo-example
+    # via simulation-tutorial
 matplotlib-inline==0.1.7
     # via ipykernel
     # via ipython
 mistune==3.0.2
     # via nbconvert
 multiprocess==0.70.16
-    # via repo-example
+    # via simulation-tutorial
 nbclient==0.10.0
     # via nbconvert
 nbconvert==7.16.4
@@ -195,7 +195,7 @@ numpy==2.0.0
     # via contourpy
     # via matplotlib
     # via pandas
-    # via repo-example
+    # via simulation-tutorial
     # via xarray
 overrides==7.7.0
     # via jupyter-server
@@ -319,7 +319,7 @@ tornado==6.4.1
     # via notebook
     # via terminado
 tqdm==4.66.4
-    # via repo-example
+    # via simulation-tutorial
 traitlets==5.14.3
     # via comm
     # via ipykernel
@@ -356,6 +356,6 @@ websocket-client==1.8.0
 widgetsnbextension==4.0.11
     # via ipywidgets
 xarray==2024.6.0
-    # via repo-example
+    # via simulation-tutorial
 xyzservices==2024.6.0
     # via bokeh
