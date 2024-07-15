@@ -7,12 +7,13 @@
 #   all-features: false
 #   with-sources: false
 #   generate-hashes: false
+#   universal: true
 
 -e file:.
 anyio==4.4.0
     # via httpx
     # via jupyter-server
-appnope==0.1.4
+appnope==0.1.4 ; platform_system == 'Darwin'
     # via ipykernel
 argon2-cffi==23.1.0
     # via jupyter-server
@@ -41,12 +42,17 @@ certifi==2024.7.4
     # via requests
 cffi==1.16.0
     # via argon2-cffi-bindings
+    # via pyzmq
 charset-normalizer==3.3.2
     # via requests
 click==8.1.7
     # via dask
 cloudpickle==3.0.0
     # via dask
+colorama==0.4.6 ; platform_system == 'Windows' or sys_platform == 'win32'
+    # via click
+    # via ipython
+    # via tqdm
 comm==0.2.2
     # via ipykernel
     # via ipywidgets
@@ -220,7 +226,7 @@ parso==0.8.4
     # via jedi
 partd==1.4.2
     # via dask
-pexpect==4.9.0
+pexpect==4.9.0 ; sys_platform != 'emscripten' and sys_platform != 'win32'
     # via ipython
 pillow==10.4.0
     # via bokeh
@@ -234,7 +240,7 @@ prompt-toolkit==3.0.47
     # via jupyter-console
 psutil==6.0.0
     # via ipykernel
-ptyprocess==0.7.0
+ptyprocess==0.7.0 ; os_name != 'nt' or (sys_platform != 'emscripten' and sys_platform != 'win32')
     # via pexpect
     # via terminado
 pure-eval==0.2.2
@@ -257,6 +263,12 @@ python-json-logger==2.0.7
     # via jupyter-events
 pytz==2024.1
     # via pandas
+pywin32==306 ; platform_python_implementation != 'PyPy' and sys_platform == 'win32'
+    # via jupyter-core
+pywinpty==2.0.13 ; os_name == 'nt'
+    # via jupyter-server
+    # via jupyter-server-terminals
+    # via terminado
 pyyaml==6.0.1
     # via bokeh
     # via dask
