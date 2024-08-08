@@ -13,6 +13,9 @@ This should be enough to set everything up, including python version.
 
 The tutorial notebook is located in the notebooks folder.
 
+It works very well to run this repo in VS Code.
+Using the jupyter extensions allows you to run the notebooks within VS code.
+
 # How this repo was set up
 
 The repo was set up using the following commands:
