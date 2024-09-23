@@ -1,15 +1,22 @@
 # How to start
 
-To make this repo you need rye [installed](https://rye.astral.sh/guide/installation/).
+To make this repo you need uv [installed](https://docs.astral.sh/uv/getting-started/installation/).
+This was tested with uv version 0.4.12.
 
-To make the repo run install rye and clone the repo.
+To make the repo run install uv and clone the repo.
 Go to the repo folder and run:
 
 ```shell
-rye sync --no-lock
+uv sync
 ```
 
 This should be enough to set everything up, including python version.
+
+For running specific commands in the virtual environment use:
+
+```shell
+uv run <command>
+```
 
 The tutorial notebook is located in the notebooks folder.
 
@@ -23,28 +30,33 @@ The repo was set up using the following commands:
 Go to the folder were you have your repositories
 
 ```shell
-rye init simulation_tutorial
+uv init simulation_tutorial
 ```
 
 To install the wanted packages 
 ```shell
-rye add jupyter
-rye add numpy
-rye add xarray
-rye add matplotlib
-rye add multiprocess
-rye add tqdm
+uv add jupyter
+uv add numpy
+uv add xarray
+uv add matplotlib
+uv add multiprocess
+uv add tqdm
 ```
 
 Change python version
 ```shell
-rye pin 3.11
-rye sync
+uv pin 3.12
+uv sync
 ```
 
 Add the following line to pyproject.toml such that the project becomes an editable install and we can import modules from our own repository.
 ```toml
-[tool.rye.workspace]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/simulation_tutorial"]
 ```
 
 Add the following lines to pyproject.toml to also format jupyter notebooks, directly fix linting issues and also sort the imports
@@ -56,11 +68,3 @@ fix = true
 [tool.ruff.lint]
 select = ["I"]
 ```
-
-To make the lock file work on all systems you add
-```toml
-[tool.rye]
-universal = true
-```
-
-
