@@ -1,9 +1,9 @@
 # How to start
 
-To make this repo you need uv [installed](https://docs.astral.sh/uv/getting-started/installation/).
-This was tested with uv version 0.4.12.
+To make this repo you need `uv` [installed](https://docs.astral.sh/uv/getting-started/installation/).
+This was tested with `uv` version 0.4.30.
 
-To make the repo run install uv and clone the repo.
+To use this repo, install `uv` and clone the repo.
 Go to the repo folder and run:
 
 ```shell
@@ -21,7 +21,7 @@ uv run <command>
 The tutorial notebook is located in the notebooks folder.
 
 It works very well to run this repo in VS Code.
-Using the jupyter extensions allows you to run the notebooks within VS code.
+Using the jupyter extensions allows you to run the notebooks within VS code using this virtual enviroment.
 
 # How this repo was set up
 
@@ -45,7 +45,7 @@ uv add tqdm
 
 Change python version
 ```shell
-uv pin 3.12
+uv pin 3.13
 uv sync
 ```
 
