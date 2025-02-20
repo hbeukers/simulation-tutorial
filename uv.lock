@@ -2062,6 +2062,31 @@ wheels = [
 ]
 
 [[package]]
+name = "qutip"
+version = "5.1.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "packaging" },
+    { name = "scipy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/61/0b/c27eaa406bf55ed777697bb1ab15ace9bc72daa160bc99ce78b1838e53f1/qutip-5.1.1.tar.gz", hash = "sha256:2f6556a6d359dadb6ffbd9c31dd6f29aec6afd145749e3079401dac892ece39b", size = 6588149 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/62/82/e2ef2d024710015851536698dd1a9cba6668fd525493de24c7a39102edc4/qutip-5.1.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:5e0c5dfad9df3c06b285beaef5e1151b6c178da28369e703c20b871808a2bbd9", size = 10352137 },
+    { url = "https://files.pythonhosted.org/packages/2e/24/4a13908dd400112705baa7205dcf038d1ef04e6b50df2655e7f5de32493c/qutip-5.1.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:820272ffdc305fd8c066bcf560247311f59287be8ef85e9457412040f38167d4", size = 10073073 },
+    { url = "https://files.pythonhosted.org/packages/70/bc/138fac4fe192ec503d00b1b63f98a5874e071d1714d5d6cb6036b2a8fda8/qutip-5.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:251142a5891feb1863eaf648684683f8fe473045ef34b4bacbea069235546606", size = 30050464 },
+    { url = "https://files.pythonhosted.org/packages/31/c2/aa484558aa87006af381c29319976957ef00ec8fe1781af4bf304719ccf4/qutip-5.1.1-cp311-cp311-win_amd64.whl", hash = "sha256:616e2d4f3f4f8781595b81637b68c42a95c5b4e92670a0a2a9cb29839c60480d", size = 9855017 },
+    { url = "https://files.pythonhosted.org/packages/40/cf/4caa7b218564a3c7ef993355a19745a84a26d4d3c43094a6bf9197ad6d27/qutip-5.1.1-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:063b9cefb56309177f1689c3b3c560dfde2c1c578c2940c715b3d6114041f44a", size = 10335904 },
+    { url = "https://files.pythonhosted.org/packages/d2/0b/a33d795b90ad84b3e44dd0380c68b67132563391581d57acc3295f33ab52/qutip-5.1.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:3a93e1a3810501e36defa3e6fd993eefbc83d92eab151ce348b07c99fb14d061", size = 10069984 },
+    { url = "https://files.pythonhosted.org/packages/d2/f1/32a1c08bbdd7f619170263331e2d257e973eaa25d8162ed822cab8a85fe7/qutip-5.1.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3ae2d4df316eab5c2543f6ce1fa6f973cd58db65c887c226cc352fe329482510", size = 29645567 },
+    { url = "https://files.pythonhosted.org/packages/a8/0a/a5d1e0089402d884896ccd50c444f9e1ebfebad0cd48eac68019dbe1d14d/qutip-5.1.1-cp312-cp312-win_amd64.whl", hash = "sha256:a75d9aa5792c0250883100f901390d032c9b101ed9e0fe64173b7e549c4e007a", size = 9816406 },
+    { url = "https://files.pythonhosted.org/packages/aa/32/a6556140da84e9c3858c13adc6491b5485b591f1d8d7c1c07c347070f029/qutip-5.1.1-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:03999392d4b91e8eacd183798502e2d0efb79ca8ee0151d6cb0504d2fa0478f0", size = 10285097 },
+    { url = "https://files.pythonhosted.org/packages/03/63/01b31ee60b57d3f91cd798fda53ecbd5839b98f04a97de8e18d85c10e270/qutip-5.1.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:8c3a1d49094abc9f582b2660d45b03ceffdafa983e2738e38c9d7df16637f147", size = 10024418 },
+    { url = "https://files.pythonhosted.org/packages/5b/01/896e452fd6a839be32b4262323805d820fd43131f18e1c87c9c727a07a06/qutip-5.1.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:88d05d5a42af70a424c14f11f258772ca663791abc099a7b663802a014384fd7", size = 29468615 },
+    { url = "https://files.pythonhosted.org/packages/c8/75/b5ae82500032ab2fbe173391c69c81742e39090e80f24243e5e09e8ba1a8/qutip-5.1.1-cp313-cp313-win_amd64.whl", hash = "sha256:4402f650a1eb0e6e28be58175e70cab7c917054af3a2fac3d46c7f985f196d75", size = 9803827 },
+]
+
+[[package]]
 name = "referencing"
 version = "0.36.2"
 source = { registry = "https://pypi.org/simple" }
@@ -2286,6 +2311,7 @@ source = { editable = "." }
 dependencies = [
     { name = "jupyter" },
     { name = "numpy" },
+    { name = "qutip" },
     { name = "tqdm" },
     { name = "xarray", extra = ["io", "parallel", "viz"] },
 ]
@@ -2294,6 +2320,7 @@ dependencies = [
 requires-dist = [
     { name = "jupyter", specifier = ">=1.0.0" },
     { name = "numpy", specifier = ">=2.0.0" },
+    { name = "qutip", specifier = ">=5.1.1" },
     { name = "tqdm", specifier = ">=4.66.4" },
     { name = "xarray", extras = ["io", "parallel", "viz"], specifier = ">=2024.6.0" },
 ]
