@@ -1,5 +1,5 @@
 [project]
-name = "simulation_tutorial"
+name = "simulation-tutorial"
 version = "0.1.0"
 description = "Example on how to use uv for your repository and xarray apply_ufunc for sweeping."
 authors = [
@@ -11,6 +11,7 @@ dependencies = [
     "tqdm>=4.66.4",
     "jupyter>=1.0.0",
     "qutip>=5.1.1",
+    "multiprocess>=0.70.17",
 ]
 readme = "README.md"
 requires-python = ">= 3.11"

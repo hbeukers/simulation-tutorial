@@ -52,18 +52,19 @@ def _make_args_list(*args, **kwargs):
         return np.nan
 
     kwargs["output_dtypes"] = [float]
+    kwargs["output_core_dims"] = [[]]
     xr.apply_ufunc(wrapper_args, *args[1:], **kwargs)
     return args_list
 
 
-def _apply_func_multiprocessing(partial_func, args_list):
+def _apply_func_multiprocessing(partial_func, args_list, chunksize):
     """
     Apply a list of args to a function using multiprocessing and tqdm.
     """
     with Pool() as p:
         results_list = list(
             tqdm(
-                p.imap(partial_func, args_list, chunksize=1),
+                p.imap(partial_func, args_list, chunksize=chunksize),
                 total=len(args_list),
             )
         )
@@ -88,11 +89,12 @@ def _apply_ufunc_precomputed_results(*args, results_list, **kwargs):
     return xr.apply_ufunc(wrapper_results, *args[1:], **kwargs)
 
 
-def _apply_ufunc(*args, multiprocessing: bool = False, **kwargs):
+def _apply_ufunc(*args, multiprocessing: bool = False, chunksize:int=1, **kwargs):
     """
     This funciton imitates the behaviour of xarray.apply_ufunc.
     However it adds the functionality of multiprocessing.
     If you set multiprocessing to true it will use the multiprocessing library of python.
+    chuncksize is used by imap of multiprocess(ing)
     """
     if not multiprocessing:
         return xr.apply_ufunc(*args, **kwargs)
@@ -105,7 +107,7 @@ def _apply_ufunc(*args, multiprocessing: bool = False, **kwargs):
     if kwargs["kwargs"] is None:
         kwargs["kwargs"] = {}
     partial_func = Partial(func, **kwargs["kwargs"])
-    results_list = _apply_func_multiprocessing(partial_func, args_list)
+    results_list = _apply_func_multiprocessing(partial_func, args_list, chunksize)
     return _apply_ufunc_precomputed_results(*args, results_list=results_list, **kwargs)
 
 
@@ -129,10 +131,11 @@ def apply_ufunc(
     dask_gufunc_kwargs: dict[str, Any] | None = None,
     on_missing_core_dim: MissingCoreDimOptions = "raise",
     multiprocessing: bool = False,
+    chunksize: int = 1,
 ) -> Any:
     """
     Wrapper around xarray apply_ufunc, but which allows to do multiprocessing from the standard python library.
-    To use this, set multiprocessing=True and vectorize=True.
+    To use this, set multiprocessing=True and vectorize=True. chunksize is passed to imap of multipress(ing).
     """
     return _apply_ufunc(
         func,
@@ -153,4 +156,5 @@ def apply_ufunc(
         dask_gufunc_kwargs=dask_gufunc_kwargs,
         on_missing_core_dim=on_missing_core_dim,
         multiprocessing=multiprocessing,
+        chunksize=chunksize
     )
