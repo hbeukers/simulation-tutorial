@@ -89,7 +89,7 @@ def _apply_ufunc_precomputed_results(*args, results_list, **kwargs):
     return xr.apply_ufunc(wrapper_results, *args[1:], **kwargs)
 
 
-def _apply_ufunc(*args, multiprocessing: bool = False, chunksize:int=1, **kwargs):
+def _apply_ufunc(*args, multiprocessing: bool = False, chunksize: int = 1, **kwargs):
     """
     This funciton imitates the behaviour of xarray.apply_ufunc.
     However it adds the functionality of multiprocessing.
@@ -156,5 +156,5 @@ def apply_ufunc(
         dask_gufunc_kwargs=dask_gufunc_kwargs,
         on_missing_core_dim=on_missing_core_dim,
         multiprocessing=multiprocessing,
-        chunksize=chunksize
+        chunksize=chunksize,
     )
