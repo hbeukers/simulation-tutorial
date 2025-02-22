@@ -18,11 +18,11 @@ from xarray.core.types import JoinOptions
 try:
     from multiprocess import Pool
 except ImportError:
-    warnings.warn("""
-        Using multiprocessing as the multiprocess packages is not installed. 
-        This means that you cannot multiprocess functions defined in a jupyter notebook. 
-        You need to define them in an external file and import the functions. 
-        When you install the multiprocess package this limitation is not there.""")
+    warnings.warn(
+        "Multiprocess package is not installed. Falling back to multiprocessing. "
+        "Note: Functions defined in a Jupyter Notebook cannot be parallelized "
+        "unless they are imported from an external file."
+        "The multiprocess package removes this limitation.")
     from multiprocessing import Pool
 
 MissingCoreDimOptions = Literal["raise", "copy", "drop"]
@@ -77,7 +77,7 @@ def _apply_ufunc_precomputed_results(*args, results_list, **kwargs):
     """
     # When using vectorize, xarray calls numpy.vectorize internally.
     # If the output_dtypes is not specified (None) numpy evaluates the first function call twice.
-    # In this scenario we need to inerst an extra entry in the list to make it match the list of args.
+    # In this scenario we need to insert an extra entry in the list to make it match the list of args.
     if kwargs.get("output_dtypes", None) is None:
         results_list.insert(
             0, results_list[0]
@@ -91,10 +91,10 @@ def _apply_ufunc_precomputed_results(*args, results_list, **kwargs):
 
 def _apply_ufunc(*args, multiprocessing: bool = False, chunksize: int = 1, **kwargs):
     """
-    This funciton imitates the behaviour of xarray.apply_ufunc.
+    This function imitates the behaviour of xarray.apply_ufunc.
     However it adds the functionality of multiprocessing.
-    If you set multiprocessing to true it will use the multiprocessing library of python.
-    chuncksize is used by imap of multiprocess(ing)
+    If you set multiprocessing to true it will use the multiprocess(ing) library of Python.
+    chunksize is used by imap of multiprocess(ing)
     """
     if not multiprocessing:
         return xr.apply_ufunc(*args, **kwargs)
@@ -134,8 +134,10 @@ def apply_ufunc(
     chunksize: int = 1,
 ) -> Any:
     """
-    Wrapper around xarray apply_ufunc, but which allows to do multiprocessing from the standard python library.
-    To use this, set multiprocessing=True and vectorize=True. chunksize is passed to imap of multipress(ing).
+    A wrapper around xarray.apply_ufunc that adds multiprocessing support.
+
+    Set `multiprocessing=True` and `vectorize=True` to enable parallel execution.
+    The `chunksize` parameter controls the work distribution for the multiprocessing pool.
     """
     return _apply_ufunc(
         func,
