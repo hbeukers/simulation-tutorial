@@ -1,9 +1,15 @@
+# How to clone this repo
+
+Go in your terminal to the folder where you want to clone the repo and run
+
+```shell
+git clone https://github.com/hbeukers/simulation-tutorial.git
+```
+
 # How to start
 
-To make this repo you need `uv` [installed](https://docs.astral.sh/uv/getting-started/installation/).
-This was tested with `uv` version 0.4.30.
+To use this repo you need `uv` [installed](https://docs.astral.sh/uv/getting-started/installation/).
 
-To use this repo, install `uv` and clone the repo.
 Go to the repo folder and run:
 
 ```shell
@@ -18,10 +24,9 @@ For running specific commands in the virtual environment use:
 uv run <command>
 ```
 
-The tutorial notebook is located in the notebooks folder.
+The tutorial notebooks are located in the notebooks folder.
 
-It works very well to run this repo in VS Code.
-Using the jupyter extensions allows you to run the notebooks within VS code using this virtual enviroment.
+For VS Code: Using the jupyter extensions allows you to run the notebooks within VS code using this virtual enviroment.
 
 # How this repo was set up
 
@@ -30,26 +35,26 @@ The repo was set up using the following commands:
 Go to the folder were you have your repositories
 
 ```shell
-uv init simulation_tutorial
+uv init simulation-tutorial 
 ```
 
 To install the wanted packages 
 ```shell
-uv add jupyter
-uv add numpy
-uv add xarray
-uv add matplotlib
+uv add xarray[io, parallel, viz]
 uv add multiprocess
 uv add tqdm
+uv add jupyter
+uv add qutip
+uv add lmfit
 ```
 
 Change python version
 ```shell
-uv pin 3.13
+uv python pin 3.13
 uv sync
 ```
 
-Add the following line to pyproject.toml such that the project becomes an editable install and we can import modules from our own repository.
+Add the following lines to `pyproject.toml` such that the project becomes an editable install and we can import modules from our own repository.
 ```toml
 [build-system]
 requires = ["hatchling"]
@@ -59,7 +64,7 @@ build-backend = "hatchling.build"
 packages = ["src/simulation_tutorial"]
 ```
 
-Add the following lines to pyproject.toml to also format jupyter notebooks, directly fix linting issues and also sort the imports
+Add the following lines to `pyproject.toml` to also format jupyter notebooks, directly fix linting issues and also sort the imports
 ```toml
 [tool.ruff]
 extend-include = ["*.ipynb"]

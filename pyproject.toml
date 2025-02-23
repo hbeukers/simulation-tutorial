@@ -6,7 +6,6 @@ authors = [
     { name = "Hans Beukers", email = "h.k.c.beukers@tudelft.nl" }
 ]
 dependencies = [
-    "numpy>=2.0.0",
     "xarray[io, parallel, viz]>=2024.6.0",
     "tqdm>=4.66.4",
     "jupyter>=1.0.0",
@@ -17,8 +16,10 @@ dependencies = [
 readme = "README.md"
 requires-python = ">= 3.11"
 
-[tool.uv]
-required-version = ">0.5"
+[dependency-groups]
+dev = [
+    "ruff>=0.9.7",
+]
 
 [build-system]
 requires = ["hatchling"]
