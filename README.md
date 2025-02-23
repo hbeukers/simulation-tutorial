@@ -35,7 +35,7 @@ The repo was set up using the following commands:
 Go to the folder were you have your repositories
 
 ```shell
-uv init simulation-tutorial 
+uv init simulation-tutorial --lib
 ```
 
 To install the wanted packages 
