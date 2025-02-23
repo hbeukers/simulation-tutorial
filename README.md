@@ -1,4 +1,6 @@
-# How to clone this repo
+# How to get started
+
+### Clone repository
 
 Go in your terminal to the folder where you want to clone the repo and run
 
@@ -6,7 +8,7 @@ Go in your terminal to the folder where you want to clone the repo and run
 git clone https://github.com/hbeukers/simulation-tutorial.git
 ```
 
-# How to start
+### Install and sync `uv`
 
 To use this repo you need `uv` [installed](https://docs.astral.sh/uv/getting-started/installation/).
 
@@ -18,15 +20,15 @@ uv sync
 
 This should be enough to set everything up, including python version.
 
-For running specific commands in the virtual environment use:
+### Run Jupyter notebooks
 
-```shell
-uv run <command>
-```
+Use one of the following methods to run the notebooks in the notebooks folder:
 
-The tutorial notebooks are located in the notebooks folder.
+##### VS Code
+Install the Jupyter extension. Open the notebook in VS Code and select as kernel `.venv`. Now you can run the notebooks in VS Code.
 
-For VS Code: Using the jupyter extensions allows you to run the notebooks within VS code using this virtual enviroment.
+##### Jupyter server
+You can also start a jupyter server in the more traditional way by working in the browser. Run the following command in the folder of the repository.
 
 # How this repo was set up
 
@@ -46,6 +48,7 @@ uv add tqdm
 uv add jupyter
 uv add qutip
 uv add lmfit
+uv add ruff --dev
 ```
 
 Change python version
@@ -64,7 +67,7 @@ build-backend = "hatchling.build"
 packages = ["src/simulation_tutorial"]
 ```
 
-Add the following lines to `pyproject.toml` to also format jupyter notebooks, directly fix linting issues and also sort the imports
+Add the following lines to `pyproject.toml` to  make sure `ruff` also formats jupyter notebooks, directly fixes linting issues and also sorts the imports
 ```toml
 [tool.ruff]
 extend-include = ["*.ipynb"]
@@ -72,4 +75,13 @@ fix = true
 
 [tool.ruff.lint]
 select = ["I"]
+```
+
+You can format the code with
+```shell
+uv run ruff format
+```
+and lint using
+```shell
+uv run ruff check
 ```
