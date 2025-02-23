@@ -12,13 +12,14 @@ git clone https://github.com/hbeukers/simulation-tutorial.git
 
 To use this repo you need `uv` [installed](https://docs.astral.sh/uv/getting-started/installation/).
 
-Go to the repo folder and run:
+Go to the repo folder and run
 
 ```shell
 uv sync
 ```
+Depending on the availability of the packages it might need some time to build, just let it run.
 
-This should be enough to set everything up, including python version.
+This should be enough to set everything up, including all packages and python version.
 
 ### Run Jupyter notebooks
 
@@ -67,7 +68,7 @@ build-backend = "hatchling.build"
 packages = ["src/simulation_tutorial"]
 ```
 
-Add the following lines to `pyproject.toml` to  make sure `ruff` also formats jupyter notebooks, directly fixes linting issues and also sorts the imports
+Add the following lines to `pyproject.toml` to make sure `ruff` also formats jupyter notebooks, directly fixes linting issues and also sorts the imports
 ```toml
 [tool.ruff]
 extend-include = ["*.ipynb"]
