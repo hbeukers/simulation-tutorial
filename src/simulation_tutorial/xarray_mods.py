@@ -22,7 +22,8 @@ except ImportError:
         "Multiprocess package is not installed. Falling back to multiprocessing. "
         "Note: Functions defined in a Jupyter Notebook cannot be parallelized "
         "unless they are imported from an external file."
-        "The multiprocess package removes this limitation.")
+        "The multiprocess package removes this limitation."
+    )
     from multiprocessing import Pool
 
 MissingCoreDimOptions = Literal["raise", "copy", "drop"]
