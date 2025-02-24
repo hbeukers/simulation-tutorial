@@ -31,6 +31,10 @@ Install the Jupyter extension. Open the notebook in VS Code and select as kernel
 ##### Jupyter server
 You can also start a jupyter server in the more traditional way by working in the browser. Run the following command in the folder of the repository.
 
+```shell
+uv run jupyter lab
+```
+
 # How this repo was set up
 
 The repo was set up using the following commands:
