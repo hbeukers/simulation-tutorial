@@ -17,25 +17,25 @@ Go to the repo folder and run
 ```shell
 uv sync
 ```
-Depending on the availability of the packages it might need some time to build, just let it run.
+Depending on the availability of the packages on your platform it might need some time to build, just let it run.
 
 This should be enough to set everything up, including all packages and python version.
 
 ### Run Jupyter notebooks
 
-Use one of the following methods to run the notebooks in the notebooks folder:
+Use one of the following methods to run the notebooks in the `notebooks` folder:
 
 ##### VS Code
 Install the Jupyter extension. Open the notebook in VS Code and select as kernel `.venv`. Now you can run the notebooks in VS Code.
 
 ##### Jupyter server
-You can also start a jupyter server in the more traditional way by working in the browser. Run the following command in the folder of the repository.
+You can also start a Jupyter server in the more traditional way by working in the browser. Run the following command in the folder of the repository.
 
 ```shell
 uv run jupyter lab
 ```
 
-# How this repo was set up
+# How this repository was set up
 
 The repo was set up using the following commands:
 

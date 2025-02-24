@@ -1,7 +1,7 @@
 [project]
 name = "simulation-tutorial"
-version = "0.1.0"
-description = "Example on how to use uv for your repository and xarray apply_ufunc for sweeping."
+version = "1.0.0"
+description = "Examples on how to use uv for your repository and xarray apply_ufunc for sweeping of simulations."
 authors = [
     { name = "Hans Beukers", email = "h.k.c.beukers@tudelft.nl" }
 ]
