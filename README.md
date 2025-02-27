@@ -79,7 +79,7 @@ extend-include = ["*.ipynb"]
 fix = true
 
 [tool.ruff.lint]
-select = ["I"]
+extend-select = ["I"]
 ```
 
 You can format the code with
